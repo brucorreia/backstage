@@ -6,9 +6,7 @@ on:
       - master
 
 env:
-  REGISTRY_URL: docker.io
-  IMAGE_NAME: brucorreia/backstage
-  TAG: backstage:1.0.0
+  TAG: docker.io/brucorreia/backstage:1.0.0
 
 jobs:
   build:
@@ -42,4 +40,4 @@ jobs:
 
     - name: Push Docker image
       run: |
-        docker push $REGISTRY_URL/$IMAGE_NAME:$TAG
+        docker push $TAG
