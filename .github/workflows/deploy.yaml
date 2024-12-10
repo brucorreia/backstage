@@ -37,7 +37,7 @@ jobs:
     - name: Docker Build
       run: |
         pwd
-        ls -l packages/backend/dist
+        ls -l 
         docker image build . -f packages/backend/Dockerfile --tag $TAG
 
     - name: Push Docker image
