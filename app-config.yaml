@@ -1,6 +1,6 @@
 app:
   title: Backstage Example App
-  baseUrl: http://localhost:3000
+  baseUrl: https://backstage.casume.com.br/
   experimental:
     packages: all # ✨
 
@@ -41,12 +41,16 @@ backend:
     # is require for the backend-next to work in this repo
     dangerouslyDisableDefaultAuthPolicy: true
 
-  baseUrl: http://localhost:7007
+  baseUrl: https://backstage.casume.com.br/
   listen:
-    port: 7007
+    port: 443
   database:
-    client: better-sqlite3
-    connection: ':memory:'
+    client: pg
+    connection:
+      host: ${POSTGRES_HOST}
+      port: ${POSTGRES_PORT}
+      user: ${POSTGRES_USER}
+      password: ${POSTGRES_PASSWORD}
   cors:
     origin: http://localhost:3000
     methods: [GET, HEAD, PATCH, POST, PUT, DELETE]
@@ -57,7 +61,7 @@ backend:
     # Default Helmet Content-Security-Policy values can be removed by setting the key to false
   reading:
     allow:
-      - host: example.com
+      - host: casume.com
       - host: '*.mozilla.org'
   # workingDirectory: /tmp # Use this to configure a working directory for the scaffolder, defaults to the OS temp-dir
 
