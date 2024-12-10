@@ -23,6 +23,7 @@ jobs:
 
     - name: Install dependencies
       run: |
+        cd casume
         yarn install --immutable
         yarn tsc
         yarn build:backend
@@ -33,7 +34,6 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
-    
     - name: Docker Build
       run: |
         docker image build . -f packages/backend/Dockerfile --tag $TAG
