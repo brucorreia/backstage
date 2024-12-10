@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  TAG: docker.io/brucorreia/backstage:1.0.1
+  TAG: docker.io/brucorreia/backstage:1.0.2
 
 jobs:
   build:
