@@ -36,8 +36,7 @@ jobs:
 
     - name: Docker Build
       run: |
-        pwd
-        ls -l 
+        cd casume
         docker image build . -f packages/backend/Dockerfile --tag $TAG
 
     - name: Push Docker image
