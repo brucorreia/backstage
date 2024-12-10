@@ -27,7 +27,6 @@ jobs:
         yarn install --immutable
         yarn tsc
         yarn build:backend
-        ls -l packages/backend/dist
 
     - name: Log in to Docker Hub (ou GitHub Container Registry)
       uses: docker/login-action@v2
@@ -37,6 +36,8 @@ jobs:
 
     - name: Docker Build
       run: |
+        pwd
+        ls -l packages/backend/dist
         docker image build . -f packages/backend/Dockerfile --tag $TAG
 
     - name: Push Docker image
